@@ -1,48 +1,39 @@
 ﻿using System;
 
-class CompareCharArrays
+class Program
 {
     static void Main()
-    {
-        string firstArray = Console.ReadLine();
-        string secondArray = Console.ReadLine();
+    { 
+        string first = Console.ReadLine();
+        string second = Console.ReadLine();
 
-        bool areEqual = true;
-        string result = "";
+        string result = string.Empty;
 
-        if (firstArray.Length < secondArray.Length)
+        for (int i = 0; i < Math.Min(first.Length, second.Length); i++)
         {
-            Console.WriteLine("<");
+            if (first[i] < second[i])
+            {
+                Console.WriteLine("<");
+                return;
+            }
+            else if (first[i] > second[i])
+            {
+                Console.WriteLine(">");
+                return;
+            }
         }
-        else if (firstArray.Length > secondArray.Length)
+
+        if (first.Length > second.Length)
         {
             Console.WriteLine(">");
         }
+        else if (first.Length < second.Length)
+        {
+            Console.WriteLine("<");
+        }
         else
         {
-            for (int i = 0; i < firstArray.Length; i++)
-            {
-                if (firstArray[i] != secondArray[i])
-                {
-                    areEqual = false;
-                    if (firstArray[i] < secondArray[i])
-                    {
-                        result = "<";
-                    }
-                    else
-                    {
-                        result = ">";
-                    }
-
-                    break;
-                }
-                else
-                {
-                    result = "=";
-                }
-            }
-
-            Console.WriteLine(result);
+            Console.WriteLine("=");
         }
     }
 }
