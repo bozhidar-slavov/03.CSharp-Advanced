@@ -3,37 +3,28 @@
 class Program
 {
     static void Main()
-    { 
+    {
         string first = Console.ReadLine();
         string second = Console.ReadLine();
 
-        string result = string.Empty;
+        int loopLength = Math.Min(first.Length, second.Length);
 
-        for (int i = 0; i < Math.Min(first.Length, second.Length); i++)
+        for (int i = 0; i < loopLength; i++)
         {
-            if (first[i] < second[i])
-            {
-                Console.WriteLine("<");
-                return;
-            }
-            else if (first[i] > second[i])
+            if (first[i] > second[i] || i == loopLength - 1 && first.Length > second.Length)
             {
                 Console.WriteLine(">");
                 return;
             }
-        }
-
-        if (first.Length > second.Length)
-        {
-            Console.WriteLine(">");
-        }
-        else if (first.Length < second.Length)
-        {
-            Console.WriteLine("<");
-        }
-        else
-        {
-            Console.WriteLine("=");
+            else if (first[i] < second[i] || i == loopLength - 1 && first.Length < second.Length)
+            {
+                Console.WriteLine("<");
+                return;
+            }
+            else if (i == loopLength - 1 && first.Length == second.Length)
+            {
+                Console.WriteLine("=");
+            }
         }
     }
 }
