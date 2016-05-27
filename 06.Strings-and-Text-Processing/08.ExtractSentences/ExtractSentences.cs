@@ -16,15 +16,10 @@ class ExtractSentences
         foreach (var sentence in splitted)
         {
             string[] words = sentence.Split(symbols);
-
-            for (int i = 0; i < words.Length; i++)
+            if (words.Contains(pattern))
             {
-                if (pattern == words[i])
-                {
-                    result.Append(sentence.Trim());
-                    result.Append(". ");
-                    break;
-                }
+                result.Append(sentence.Trim());
+                result.Append(". ");
             }
         }
 
