@@ -21,6 +21,6 @@ class StringsInCSharp
         text.AppendLine("string.Replace()");
         text.AppendLine("string.Remove()");
 
-        Console.WriteLine(text.ToString());           
+        Console.WriteLine(text);          
     }
 }
