@@ -1,0 +1,2 @@
+[computer, 7]
+[software, 5]
